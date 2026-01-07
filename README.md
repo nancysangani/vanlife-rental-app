@@ -63,6 +63,7 @@ vanlife-rental-app/
 │   ├── pages/
 │   ├── App.jsx
 │   └── main.jsx
+├── index.css
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -77,7 +78,7 @@ Follow these steps to run the project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/vanlife-rental-app.git
+git clone https://github.com/nancysangani/vanlife-rental-app.git
 
 # Navigate to the project directory
 cd vanlife-rental-app
