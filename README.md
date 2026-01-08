@@ -34,10 +34,20 @@ This project is being developed incrementally as a learning and portfolio projec
 
 ---
 
+## 🧩 Key Concepts Used
+
+- React Router nested routes
+- Dynamic routing with URL parameters
+- Shared layouts using `Outlet`
+- Client-side navigation with `NavLink`
+
+---
+
 ## 📈 Development Timeline
 
 * **Day 1:** Initialized the project using Vite and React. Configured React Router and created basic pages including Home and About.
 * **Day 2:** Implemented the Vans listing page and dynamic van detail pages using nested routes and route parameters (`:id`).
+* **Day 3:** Implemented nested routes within van detail pages, including pricing and photos sections using shared layouts and `Outlet`.
 * **Upcoming:** Host dashboard, protected routes, filters, UI improvements, and additional features.
 
 ---
@@ -59,11 +69,14 @@ vanlife-rental-app/
 ├── public/
 │   └── _redirects
 ├── src/
+│   ├── assets/
 │   ├── components/
 │   ├── pages/
+│   │   └── Vans/
 │   ├── App.jsx
+│   ├── server.js
+│   ├── index.css
 │   └── main.jsx
-├── index.css
 ├── index.html
 ├── package.json
 ├── vite.config.js
