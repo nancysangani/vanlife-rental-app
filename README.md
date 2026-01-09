@@ -48,6 +48,7 @@ This project is being developed incrementally as a learning and portfolio projec
 * **Day 1:** Initialized the project using Vite and React. Configured React Router and created basic pages including Home and About.
 * **Day 2:** Implemented the Vans listing page and dynamic van detail pages using nested routes and route parameters (`:id`).
 * **Day 3:** Implemented nested routes within van detail pages, including pricing and photos sections using shared layouts and `Outlet`.
+* **Day 4:** Implemented route loaders and error handling using React Router data APIs, replaced `useEffect`-based data fetching, and added van filtering functionality based on van type.
 * **Upcoming:** Host dashboard, protected routes, filters, UI improvements, and additional features.
 
 ---
@@ -136,7 +137,7 @@ This project is inspired by a van rental concept and built for learning purposes
 
 ## 👩‍💻 Author
 
-**Nancy**
+**Nancy**  
 BTech CSE Student | Frontend Development Learner
 
 ---
