@@ -18,7 +18,7 @@ export default function HostVanDetail() {
   }, [id]);
 
   if (!currentVan) {
-    return <h1>Loading...</h1>;
+    return <h2 style={{ marginLeft: "2rem" }}>Loading...</h2>;
   }
 
   return (
@@ -58,7 +58,7 @@ export default function HostVanDetail() {
             Photos
           </NavLink>
         </nav>
-        <Outlet />
+        <Outlet context={{ currentVan }} />
       </div>
     </section>
   );
