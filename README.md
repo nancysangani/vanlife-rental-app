@@ -74,12 +74,14 @@ vanlife-rental-app/
 │   ├── assets/
 │   ├── components/
 │   ├── pages/
-│   │   └── Vans/
-│   ├── App.jsx
-│   ├── utils.js
+│   │   └── Host/
+│   ├── Vans/
 │   ├── api.js
+│   ├── App.jsx
 │   ├── index.css
-│   └── main.jsx
+│   ├── main.jsx
+│   ├── server.js
+│   └── utils.js
 ├── index.html
 ├── package.json
 ├── vite.config.js
