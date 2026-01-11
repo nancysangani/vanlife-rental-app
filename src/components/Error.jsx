@@ -2,14 +2,13 @@ import { useRouteError } from "react-router-dom";
 
 export default function Error() {
   const error = useRouteError();
-  console.log(error);
 
   return (
-    <>
-      <h1>Error: {error.message}</h1>
-      <pre>
+    <div className="error-page">
+      <h1 className="error-title">Error: {error.message}</h1>
+      <pre className="error-details">
         {error.status} - {error.statusText}
       </pre>
-    </>
+    </div>
   );
 }

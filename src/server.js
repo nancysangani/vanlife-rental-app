@@ -3,6 +3,7 @@ import { createServer, Model } from "miragejs";
 createServer({
   models: {
     vans: Model,
+    users: Model,
   },
 
   seeds(server) {
@@ -72,6 +73,12 @@ createServer({
       type: "rugged",
       hostId: "123",
     });
+    server.create("user", {
+      id: "123",
+      email: "xyz@gmail.com",
+      password: "12345678",
+      name: "XYZ",
+    });
   },
 
   routes() {
@@ -97,5 +104,23 @@ createServer({
       const id = request.params.id;
       return schema.vans.findBy({ id, hostId: "123" });
     });
+    this.post("/login", (schema, request) => {
+      const { email, password } = JSON.parse(request.requestBody);
+      const foundUser = schema.users.findBy({ email, password });
+      if (!foundUser) {
+        return (
+          401,
+          {},
+          { error: "No user with those credentials found!" }
+        );
+      }
+
+      foundUser.password = undefined;
+      return {
+        user: foundUser,
+        token: "Enjoy your pizza, here's your tokens.",
+      };
+    });
+    this.passthrough();
   },
 });
