@@ -4,7 +4,7 @@ import {
   Form,
   useActionData,
   useNavigate,
-  redirect
+  redirect,
 } from "react-router-dom";
 import { loginUser } from "../api";
 import { useEffect } from "react";
@@ -17,12 +17,14 @@ export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  const pathname =
+    new URL(request.url).searchParams.get("redirectTo") || "/host";
 
   try {
     const data = await loginUser({ email, password });
     localStorage.setItem("token", data.token);
     localStorage.setItem("loggedin", "true");
-    return { success: true };
+    return { success: true, redirectTo: pathname };
   } catch (err) {
     return { error: err?.message || "Login failed. Please try again." };
   }
@@ -36,8 +38,9 @@ export default function Login() {
 
   useEffect(() => {
     if (actionData?.success) {
-      console.log("Navigating to /host");
-      navigate("/host", { replace: true });
+      const redirectTo = actionData.redirectTo || "/host";
+      console.log("Navigating to", redirectTo);
+      navigate(redirectTo, { replace: true });
     }
   }, [actionData, navigate]);
 

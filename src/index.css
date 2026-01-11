@@ -71,6 +71,28 @@ header .login-link {
   align-items: center;
 }
 
+.logout-btn {
+  background-color: #ff8c38;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e67d32;
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+}
+
 nav {
   display: flex;
 }
