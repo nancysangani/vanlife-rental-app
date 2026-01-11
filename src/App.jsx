@@ -28,7 +28,6 @@ import NotFound from "./pages/NotFound.jsx";
 import Error from "./components/Error.jsx";
 import ProtectedLayout from "./components/ProtectedLayout.jsx";
 
-import { requireAuth } from "./utils.js";
 import "./server";
 
 const router = createBrowserRouter(
@@ -43,11 +42,7 @@ const router = createBrowserRouter(
         action={loginAction}
       />
       <Route element={<ProtectedLayout />}>
-        <Route
-          path="host"
-          element={<HostLayout />}
-          loader={async () => await requireAuth()}
-        >
+        <Route path="host" element={<HostLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="income" element={<Income />} />
           <Route
