@@ -15,7 +15,7 @@ export default function HostVans() {
         <img src={hostVan.imageUrl} alt={`Photo of ${hostVan.name}`} />
         <div className="host-van-info">
           <h3>{hostVan.name}</h3>
-          <p>${hostVan.price}/day</p>
+          <p>₹{hostVan.price}/day</p>
         </div>
       </div>
     </Link>

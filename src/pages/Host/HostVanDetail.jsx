@@ -1,8 +1,8 @@
 import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
-import { getHostVans } from "./../../api.js";
+import { getHostVanDetails } from "./../../api.js";
 
 export async function loader({ params }) {
-  const van = await getHostVans(params.id);
+  const van = await getHostVanDetails(params.id);
   return { van };
 }
 
@@ -28,7 +28,7 @@ export default function HostVanDetail() {
               {currentVan.type}
             </i>
             <h3>{currentVan.name}</h3>
-            <h4>${currentVan.price}/day</h4>
+            <h4>₹{currentVan.price}/day</h4>
           </div>
         </div>
         <nav className="host-van-detail-nav">

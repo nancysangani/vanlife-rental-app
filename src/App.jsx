@@ -32,8 +32,6 @@ import NotFound from "./pages/NotFound.jsx";
 import Error from "./components/Error.jsx";
 import ProtectedLayout from "./components/ProtectedLayout.jsx";
 
-import "./server";
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>

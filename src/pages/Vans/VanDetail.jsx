@@ -1,8 +1,8 @@
 import { Link, useLocation, useLoaderData } from "react-router-dom";
-import { getVans } from "../../api.js";
+import { getVanDetails } from "../../api.js";
 
 export async function loader({ params }) {
-  const vanDetail = await getVans(params.id);
+  const vanDetail = await getVanDetails(params.id);
   return { vanDetail };
 }
 
@@ -27,7 +27,7 @@ export default function VanDetail() {
         </i>
         <h2>{vanDetail.name}</h2>
         <p className="van-price">
-          <span>${vanDetail.price}</span>/day
+          <span>₹{vanDetail.price}</span>/day
         </p>
         <p>{vanDetail.description}</p>
         <button className="link-button">Rent this van</button>

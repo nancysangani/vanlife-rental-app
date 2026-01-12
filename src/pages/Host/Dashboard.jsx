@@ -19,7 +19,7 @@ export default function Dashboard() {
           <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
           <div className="host-van-info">
             <h3>{van.name}</h3>
-            <p>${van.price}/day</p>
+            <p>₹{van.price}/day</p>
           </div>
         </div>
       </Link>
@@ -40,7 +40,7 @@ export default function Dashboard() {
           <p>
             Income last <span>30 days</span>
           </p>
-          <h2>$2,260</h2>
+          <h2>₹203,400</h2>
         </div>
         <Link to="income">Details</Link>
       </section>
