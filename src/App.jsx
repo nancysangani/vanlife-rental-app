@@ -11,9 +11,13 @@ import Login, {
   action as loginAction,
 } from "./pages/Login.jsx";
 import Layout from "./components/Layout.jsx";
-import Vans, { loader as vansLoader } from "./Vans/Vans.jsx";
-import VanDetail, { loader as vanDetailLoader } from "./Vans/VanDetail.jsx";
-import Dashboard from "./pages/Host/Dashboard.jsx";
+import Vans, { loader as vansLoader } from "./pages/Vans/Vans.jsx";
+import VanDetail, {
+  loader as vanDetailLoader,
+} from "./pages/Vans/VanDetail.jsx";
+import Dashboard, {
+  loader as dashboardLoader,
+} from "./pages/Host/Dashboard.jsx";
 import Income from "./pages/Host/Income.jsx";
 import HostVans, { loader as hostVanLoader } from "./pages/Host/HostVans.jsx";
 import HostVanDetail, {
@@ -43,17 +47,19 @@ const router = createBrowserRouter(
       />
       <Route element={<ProtectedLayout />}>
         <Route path="host" element={<HostLayout />}>
-          <Route index element={<Dashboard />} />
+          <Route index element={<Dashboard />} loader={dashboardLoader} />
           <Route path="income" element={<Income />} />
           <Route
             path="hostvans"
             element={<HostVans />}
             loader={hostVanLoader}
+            errorElement={<Error />}
           />
           <Route
             path="hostvans/:id"
             element={<HostVanDetail />}
             loader={hostVanDetailLoader}
+            errorElement={<Error />}
           >
             <Route index element={<HostVanInfo />} />
             <Route path="pricing" element={<HostVanPricing />} />
@@ -68,7 +74,12 @@ const router = createBrowserRouter(
         loader={vansLoader}
         errorElement={<Error />}
       />
-      <Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} />
+      <Route
+        path="vans/:id"
+        element={<VanDetail />}
+        loader={vanDetailLoader}
+        errorElement={<Error />}
+      />
       <Route path="*" element={<NotFound />} />
     </Route>
   )

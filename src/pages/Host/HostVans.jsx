@@ -2,11 +2,13 @@ import { Link, useLoaderData } from "react-router-dom";
 import { getHostVans } from "./../../api.js";
 
 export async function loader() {
-  return getHostVans();
+  const hostVans = await getHostVans();
+  return { hostVans };
 }
 
 export default function HostVans() {
-  const hostVans = useLoaderData();
+  const { hostVans } = useLoaderData();
+
   const hostVansElements = hostVans.map((hostVan) => (
     <Link to={hostVan.id} key={hostVan.id} className="host-van-link-wrapper">
       <div className="host-van-single" key={hostVan.id}>
@@ -18,6 +20,7 @@ export default function HostVans() {
       </div>
     </Link>
   ));
+
   return (
     <section>
       <h1 className="host-vans-title">Your listed vans</h1>

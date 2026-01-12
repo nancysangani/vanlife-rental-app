@@ -1,15 +1,16 @@
 import { Link, useLocation, useLoaderData } from "react-router-dom";
-import { getVans } from "./../api.js";
+import { getVans } from "../../api.js";
 
-export function loader({ params }) {
-  return getVans(params.id);
+export async function loader({ params }) {
+  const vanDetail = await getVans(params.id);
+  return { vanDetail };
 }
 
 export default function VanDetail() {
   const location = useLocation();
   console.log(location);
 
-  const van = useLoaderData();
+  const { vanDetail } = useLoaderData();
 
   const search = location.state?.search || "";
   const type = location.state?.type || "all";
@@ -20,13 +21,15 @@ export default function VanDetail() {
         &larr; <span>Back to {type} vans</span>
       </Link>
       <div className="van-detail">
-        <img alt={van.name} src={van.imageUrl} />
-        <i className={`van-type ${van.type} selected`}>{van.type}</i>
-        <h2>{van.name}</h2>
+        <img alt={vanDetail.name} src={vanDetail.imageUrl} />
+        <i className={`van-type ${vanDetail.type} selected`}>
+          {vanDetail.type}
+        </i>
+        <h2>{vanDetail.name}</h2>
         <p className="van-price">
-          <span>${van.price}</span>/day
+          <span>${vanDetail.price}</span>/day
         </p>
-        <p>{van.description}</p>
+        <p>{vanDetail.description}</p>
         <button className="link-button">Rent this van</button>
       </div>
     </div>
