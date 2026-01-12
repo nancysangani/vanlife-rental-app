@@ -2,9 +2,9 @@ import incomeGraph from "../../assets/income-graph.png";
 
 export default function Income() {
   const transactionsData = [
-    { amount: 64800, date: "Jan 3, '23", id: "1" },
-    { amount: 50400, date: "Dec 12, '22", id: "2" },
-    { amount: 88200, date: "Dec 3, '22", id: "3" },
+    { amount: 64800, date: "Jan 3, '26", id: "1" },
+    { amount: 50400, date: "Dec 12, '25", id: "2" },
+    { amount: 88200, date: "Dec 3, '25", id: "3" },
   ];
   return (
     <section className="host-income">
